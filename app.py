@@ -39,9 +39,12 @@ unsafe_allow_html=True)
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-client = Groq(
-    api_key=os.getenv("GROQ_API_KEY")
-)
+try:
+    api_key = st.secrets["GROQ_API_KEY"]
+except:
+    api_key = os.getenv("GROQ_API_KEY")
+
+client = Groq(api_key=api_key)
 
 st.markdown("""
 <div style="
