@@ -3,7 +3,6 @@ from groq import Groq
 import os
 
 from dotenv import load_dotenv
-
 from chatbot import ask_question
 from notes import summarize_notes
 from quiz import generate_quiz
@@ -36,9 +35,6 @@ st.markdown("""
 </style>
 """,
 unsafe_allow_html=True)
-
-if "messages" not in st.session_state:
-    st.session_state.messages = []
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
